@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" href="/css/style.css">
+<div class="heading">
+    <h1>PRODUCTS</h1>
+    <p>we offer huge variety of products</p>
+</div>
+<div id="product-container">
+    <% PRODUCTS.forEach((product) => { %>
+    <div id="single-product">
+        <div class="details">
+            <div class="image-of-product">
+                <img id="pimage" src="<%=product.pimage%>" alt="pimage">
+            </div>
+            <h2 id="product_h2"><%= product.productname %></h2>
+            <span><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> <%= product.price %>/-</span>
+            <a id="checkout-product" href="/checkout?productname=<%=product.productname%>">CHECKOUT</a>
+        </div>
+    </div>
+    <% }); %>
+</div>

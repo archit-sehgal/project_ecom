@@ -1,0 +1,42 @@
+<%- include("partials/header") -%>
+<link rel="stylesheet" href="/css/style.css">
+<div class="pay-btn">
+    <button id="rzp-button1">Pay</button>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_OCxeKJH1bSWmcu",
+        "amount": "", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "order_id": "", // Initialize the order_id with an empty string
+        "handler": function (response) {
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature);
+        }
+    };
+
+    document.getElementById('rzp-button1').onclick = async function (e) {
+        e.preventDefault();
+
+        let response = await fetch("http://localhost:3000/payment", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                amount: 500,
+            })
+        });
+        let orderdata = await response.json();
+        console.log(orderdata);
+
+        // Update the options with the order_id received from the server
+        options.order_id = orderdata.order.id;
+
+        // Initialize Razorpay with updated options
+        var rzp1 = new Razorpay(options);
+
+        rzp1.open();
+    };
+</script>

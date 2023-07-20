@@ -1,0 +1,33 @@
+<%-include("partials/header")-%>
+<link rel="stylesheet" href="/css/style.css">
+<section class="product">
+	<div class="product-photo">
+		<img src="<%=selectedproduct.pimage%>" alt="" style="width:600px;">
+		<div class="product-photo-header">
+			<span>///</span>
+			<span>Anyzone</span>
+		</div>
+	</div>
+	<div class="product-desc">
+		<div class="product-desc-head">
+			<span><%=selectedproduct.productname%></span>
+			<b>Product-ID: <%=selectedproduct.pid%></b>
+			<div class="price-of-product-checkout">
+				<p><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i> <%=selectedproduct.price%>/-</p>
+			</div>
+		</div>
+		<div class="product-desc-bottom">
+			<div class="product-des-details">
+				<ul>
+					<li>1-year manufacturer's warranty covering defects and malfunctions</li>
+					<li>24/7 customer support helpline for any inquiries or assistance</li>
+					<li>Extensive online knowledge base with step-by-step guides and troubleshooting tips</li>
+				</ul>
+			</div>
+			<div class="buy-btn">
+				<button id="add_to_cart"><a href="/cart?productid=<%=selectedproduct.pid%>">ADD TO CART</a></button>
+				<button id="buy_now"><a href="/buynow">BUY NOW</a></button>
+			</div>
+		</div>
+	</div>
+</section>
