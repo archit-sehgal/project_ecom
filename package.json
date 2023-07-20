@@ -16,7 +16,7 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "lodash": "^4.17.21",
-    "mongoose": "^7.4.0",
+    "mongoose": "^6.10.1",
     "netlify-cli": "^15.9.1",
     "netlify-lambda": "^2.0.16",
     "razorpay": "^2.9.1",
