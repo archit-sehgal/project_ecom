@@ -8,9 +8,6 @@
   },
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": ">=14.20.1"
-  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -18,10 +15,12 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "lodash": "^4.17.21",
-    "mongoose": "^7.4.1",
+    "mongoose": "^7.4.0",
     "netlify-cli": "^15.9.1",
     "netlify-lambda": "^2.0.16",
+    "node": "^20.4.0",
     "razorpay": "^2.9.1",
-    "serverless-http": "^3.2.0"
+    "serverless-http": "^3.2.0",
+    "yarn": "^1.22.19"
   }
 }
