@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.use(cors());
 
 let login = "false";
-let id = 0;
+let id = 4;
 const ADMINS = [];
 
 // mongo
@@ -209,7 +209,7 @@ app.post("/list_product", async (req, res) => {
         productname: req.body.pname,
         price: req.body.price,
         pimage: req.body.pimage,
-        pid: id + 1
+        pid: id++
     };
 
     try {
