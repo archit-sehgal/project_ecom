@@ -75,8 +75,8 @@ const Product = new mongoose.model("product", product_schema);
 function admin_authenticate(req, res, next) {
     var newadmin = req.body.admin_name;
     var newadminpass = req.body.admin_pass;
-    const checkadmin = ADMINS.find((a) => a.username === newadmin && a.password === newadminpass);
-    if (checkadmin) {
+    // const checkadmin = ADMINS.find((a) => a.username === newadmin && a.password === newadminpass);
+    if (newadmin==="archit" && newadminpass==="123") {
         login = "success";
         next();
     } else {
@@ -96,9 +96,9 @@ app.get("/", async (req, res) => {
 });
 
 
-app.get("/admin-signup", (req, res) => {
-    res.render("signup");
-})
+// app.get("/admin-signup", (req, res) => {
+//     res.render("signup");
+// })
 
 app.get("/admin-login", (req, res) => {
     res.render("login");
@@ -190,16 +190,16 @@ app.get("/checkout", (req, res) => {
 
 
 // POST REQUESTS
-app.post("/admin-signup", (req, res) => {
-    const new_admin = {
-        username: req.body.admin_name,
-        password: req.body.admin_pass,
-        id: Math.floor(Math.random() * 10000)
-    }
-    ADMINS.push(new_admin);
-    res.redirect("/admin-login");
-    res.render("login");
-})
+// app.post("/admin-signup", (req, res) => {
+//     const new_admin = {
+//         username: req.body.admin_name,
+//         password: req.body.admin_pass,
+//         id: Math.floor(Math.random() * 10000)
+//     }
+//     ADMINS.push(new_admin);
+//     res.redirect("/admin-login");
+//     res.render("login");
+// })
 
 app.post("/admin-login", admin_authenticate, (req, res) => {
     res.redirect("/list_product");
